@@ -54,7 +54,9 @@ public class TenantDataSource implements Serializable {
 		if (db != null) {
 			DataSourceBuilder factory = DataSourceBuilder.create().driverClassName("com.mysql.cj.jdbc.Driver")
 					.username(db.get().getDbName()).password(db.get().getDbPwd())
-					.url("com.mysql.cj.jdbc.Driver:@" + db.get().getUrl());
+					.url(db.get().getUrl());
+//					.url("jdbc:mysql://localhost:3306/tenant_db_1");
+
 			DataSource ds = (DataSource) factory.build();
 			return ds;
 		}
